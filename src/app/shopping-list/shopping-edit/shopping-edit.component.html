@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input type="text"
+                 id="name"
+                 class="form-control"
+                 name="name" ngModel required>
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input type="number"
+                 id="amount"
+                 class="form-control" min="1"
+                 name="amount" ngModel required>
+<!--          moze i mesto min="0" da stavam
+              pattern="^[1-9]+[0-9]$"
+              ili
+              [pattern]="'^[1-9]+[0-9]$'"-->
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <button class="btn btn-success" type="submit" [disabled]="form.invalid">{{ editMode ? 'Update' : 'Add' }}</button>
+            <button class="btn btn-danger" type="button" (click)="onDelete()" [disabled]="!editMode">Delete</button>
+            <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
